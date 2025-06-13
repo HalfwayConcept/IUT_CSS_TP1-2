@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'starjedi';
+    src: url('font/Starjedi.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('../img/background.jpg') center center / cover no-repeat fixed;
+    transition: background-position 0.1s ease;
+}
+
+h1 {
+    text-align: center;
+    padding: 3%;
+    font-family: 'starjedi', monospace, sans-serif;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* Grille 4×4 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 380px;
+    gap: 20px;
+    margin: 10px;
+}
+
+/* Conteneur « flip » */
+.box {
+    perspective: 1000px;
+    /* active la perspective 3D */
+    font-size: 18px;
+}
+
+/* Élément interne animé en 3D */
+.box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+/* Au survol de la box, on la fait basculer */
+.box:hover .box-inner {
+    transform: rotateY(180deg);
+}
+
+/* Visages « front » et « back » */
+.box-front,
+.box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 3px 3px 6px rgb(140, 140, 140);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* Face arrière tournée à 180° pour être masquée au départ */
+.box-back {
+    transform: rotateY(180deg);
+}
+
+/* Image circulaire dans la face avant */
+.box-front img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+/* Texte descriptif sur la face front */
+.box-front p {
+    padding: 4px;
+}
+
+/* --- Couleurs : on répartit via des classes « goodperson » ou « badperson » --- */
+
+/* Face avant bons personnages */
+.goodperson .box-front {
+    background-color: #43a5cf;
+}
+
+/* Face avant méchants */
+.badperson .box-front {
+    background-color: #e42f43;
+}
+
+/* Face arrière bons personnages */
+.goodperson .box-back {
+    background-color: #388bae;
+}
+
+/* Face arrière méchants */
+.badperson .box-back {
+    background-color: #bb2738;
+}
+
+/* Media query pour mobile (<768px) */
+@media (max-width: 768px) {
+
+    /* On passe à 1 colonne */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Adapter l’image pour qu’elle ne soit pas trop large */
+    .box-front img {
+        max-width: 100;
+    }
+
+    /* Réduction du padding interne */
+    .box-front,
+    .box-back {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,152 @@
+/* style général*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("img/ousizuw.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+/* Titre */
+h1 {
+    color: rgb(255, 237, 71);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* méthode grille */
+/* Container général */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    justify-items: center;
+}
+
+.card {
+    width: 200px;
+    height: 340px;
+    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Zoom léger */
+}
+
+/* Flip card*/
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Face avant et arrière */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    backface-visibility: hidden;
+    text-align: center;
+}
+
+/* Face avant */
+.card-front img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.card-front h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.card-front p {
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+/* Face arrière */
+.card-back {
+    transform: rotateY(180deg);
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    line-height: 1.4em;
+}
+
+/* couleur gentils ou méchants */
+.card.alliance .card-front {
+    background-color: #fffdd0;
+    color: black;
+}
+
+.card.obscur .card-front {
+    background-color: #2b0000;
+    color: white;
+}
+
+.card.alliance .card-back,
+.card.obscur .card-back {
+    background-color: #382037;
+    color: white;
+}
+
+/* Effet néon au survol */
+.card.alliance:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 40px #00f;
+    /* Néon bleu */
+}
+
+.card.obscur:hover {
+    box-shadow: 0 0 10px red, 0 0 20px red, 0 0 40px red;
+    /* Néon rouge */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .card {
+        width: 90%;
+        height: 360px;
+    }
+
+    .card-front img {
+        width: 80px;
+    }
+
+    .card-front h2 {
+        font-size: 14px;
+    }
+
+    .card-front p,
+    .card-back {
+        font-size: 11px;
+    }
+}

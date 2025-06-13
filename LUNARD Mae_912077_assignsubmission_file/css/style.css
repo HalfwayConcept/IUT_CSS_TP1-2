@@ -1,0 +1,173 @@
+/* Définition de la police 'stjedise' avec le fichier STJEDISE.TTF */
+@font-face {
+  font-family: 'stjedise';
+  src: url('../fonts/STJEDISE.TTF') format('truetype');
+}
+
+/* Définition de la police 'starjedi' avec le fichier Starjedi.ttf */
+@font-face {
+  font-family: 'starjedi';
+  src: url('../fonts/Starjedi.ttf') format('truetype');
+}
+
+/* Style global du corps de la page avec une image de fond animée */
+body {
+  background-image: url("../img/etoile.png");
+  color: #fff;
+  animation: stars-move 40s linear infinite;
+  background-size: 600px 600px;
+}
+
+/* Animation pour déplacer l'image de fond */
+@keyframes stars-move {
+  0% {
+  background-position: 0 0;
+  }
+  100% {
+  background-position: 600px 600px;
+  }
+}
+
+/* Style pour les titres h1 avec la police 'starjedi' */
+h1 {
+  font-family: starjedi, Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+/* Style pour les titres h3 avec la police 'starjedi' et couleur jaune */
+h3 {
+  font-family: 'starjedi', Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  color: yellow;
+  font-size: 1.3em;
+}
+
+/* Style pour la classe principale avec une largeur fixe et centrée */
+.main {
+  width: 1024px;
+  margin: auto;
+}
+
+/* Grille pour afficher les cartes avec un espace entre elles */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px; /* plus d'espace entre les cartes */
+}
+
+/* Adaptation de la grille pour les écrans de largeur maximale 1000px */
+@media (max-width: 1000px) {
+  .grille { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Adaptation de la grille pour les écrans de largeur maximale 800px */
+@media (max-width: 800px) {
+  .grille { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Adaptation de la grille pour les écrans de largeur maximale 500px */
+@media (max-width: 500px) {
+  .grille { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* Style général des cartes avec bordure, ombre et transition */
+.card {
+  background: #223a3a;
+  padding: 24px 18px 18px 18px;
+  text-align: center;
+  border-radius: 16px;
+  position: relative;
+  border: 2.5px solid #ffe81f;
+  box-shadow: 0 0 18px 2px #00ffe7aa;
+  transition: box-shadow 0.15s, border-color 0.15s, background 0.15s;
+  font-family: 'Orbitron', 'Consolas', 'Courier New', monospace;
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+/* Style spécifique pour les cartes Jedi */
+.card.jedi {
+  border-color: #00ffe7;
+  box-shadow: 0 0 18px 2px #00ffe7cc;
+}
+
+/* Style spécifique pour les cartes Sith */
+.card.sith {
+  border-color: #ff003c;
+  box-shadow: 0 0 18px 2px #ff003ccc;
+}
+
+/* Effet au survol des cartes */
+.card:hover {
+  background: #2f8080;
+  box-shadow: 0 0 32px 8px #00ffe7cc;
+  z-index: 2;
+}
+
+/* Effet au survol des cartes Sith */
+.card.sith:hover {
+  background: #3a2230;
+  box-shadow: 0 0 32px 8px #ff003ccc;
+}
+
+/* Style pour les photos dans les cartes */
+.photo {
+  border-radius: 50%;
+  width: 90px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 12px 2px #00ffe7aa;
+}
+
+/* Style spécifique pour les photos dans les cartes Sith */
+.card.sith .photo {
+  box-shadow: 0 0 12px 2px #ff003caa;
+}
+
+/* Description cachée dans les cartes */
+.card .description {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s, opacity 0.2s;
+  pointer-events: none;
+}
+
+/* Affichage de la description au survol des cartes */
+.card:hover .description {
+  max-height: 200px;
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 10px;
+}
+
+/* Style pour les titres h3 dans les cartes */
+.card h3 {
+  font-family: 'starjedi', Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  color: yellow;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+}
+
+/* Ligne décorative sous les titres h3 des cartes Jedi et Sith */
+.card.jedi h3::after,
+.card.sith h3::after {
+  content: "";
+  display: block;
+  margin: 6px auto 0 auto;
+  width: 60%;
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Style de la ligne décorative pour les cartes Jedi */
+.card.jedi h3::after {
+  background: linear-gradient(90deg, #00ffe7 0%, #007bff 100%);
+  box-shadow: 0 0 8px #00ffe7;
+}
+
+/* Style de la ligne décorative pour les cartes Sith */
+.card.sith h3::after {
+  background: linear-gradient(90deg, #ff003c 0%, #ff6600 100%);
+  box-shadow: 0 0 8px #ff003c;
+}

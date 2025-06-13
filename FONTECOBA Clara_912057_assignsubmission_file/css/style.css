@@ -1,0 +1,115 @@
+
+@font-face {
+  font-family: "policetitre";
+  src: url('../police/STJEDISE.TTF');
+}
+
+body{
+    background-image:url('../img/fond.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+}
+img{
+    border-radius: 100%;
+    height: 65px;
+    width: auto ;
+    justify-self: center;
+    align-self: center;
+}
+
+.titre{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: "policetitre"  ;
+    justify-content: center;
+    color: antiquewhite;
+}
+
+.soustitre{
+    font-weight: bold;
+}
+
+
+/*Permet d'agencer le contenu des cartes du côté obscure*/
+.cardobscure {
+    background-color: black;
+    color: antiquewhite;
+    padding-top: 15%;
+    border-radius: 2%;
+    justify-items: center;
+    
+
+
+}
+
+/*Permet d'agencer les cartes comme dans un tableau*/
+.grille {
+    display: grid ;
+    grid-template-columns : repeat(4, 1fr);
+    grid-template-rows : repeat(4, 1fr);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    grid-gap: 10px;
+
+}
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.card, .cardobscure, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Le recto de la carte */
+.card {
+  color: black;
+  background-color: antiquewhite;
+  padding-top: 2px;
+  border-radius: 2%;
+  justify-items: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.cardobscure {
+  color: antiquewhite;
+  background-color: black;
+  padding-top: 2px;
+  border-radius: 2%;
+  justify-items: center;
+}
+
+
+/* Le verso de la carte*/
+.flip-card-back {
+  background-color: rgb(26, 0, 26);
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 2%;
+  justify-items: center;
+
+}

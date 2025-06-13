@@ -1,0 +1,92 @@
+body {
+    /*Ici on met le style de toute la page, notamment la police et l'image derrière*/
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("banniere.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    /*Ici on met le style du titre de la page*/
+    font-family: 'Stencil', sans-serif;
+    text-align: center;
+    color: white;
+
+}
+
+.trombinoscope {
+    /*Ici on met le style de la section trombinoscope, notamment la grille et les espacements*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px 32px;
+    padding: 25px;
+
+}
+
+.card {
+    /*Ici on met le style de chaque carte, notamment les bordures et l'espacement*/
+    border-radius: 12px;
+    padding: 18px 12px 12px 12px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+}
+
+.mechants {
+    /*Ici on met la couleur de fond des cartes des méchants*/
+    background: #c75959;
+}
+
+.card.mechants:hover {
+    /*Ici on met le style de la carte des méchants au survol*/
+    background-color: #8a1c1c;
+    transform: scale(1.1);
+}
+
+.gentils {
+    /*Ici on met la couleur de fond des cartes des gentils*/
+    background: #69c4c6;
+}
+
+.card.gentils:hover {
+    /*Ici on met le style de la carte des gentils au survol*/
+    background-color: #306a6a;
+    transform: scale(1.1);
+}
+
+.card:hover p {
+    /*Ici on met la taille au survol des cartes*/
+    max-height: 200px;
+}
+
+.trombinoscope:hover>.card:not(:hover) {
+    /*Ici on met le style des cartes qui ne sont pas survolées en les rendant transparent*/
+    opacity: 0.5;
+}
+
+
+.card img {
+    /*Ici on met le style des images dans les cartes, notamment la taille et la bordure*/
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    /*Ici on met le style des titres dans les cartes, notamment la police, les espacements et la taille*/
+    font-family: 'comic sans ms', cursive, sans-serif;
+    font-size: 20px;
+    margin: 8px 0 8px 0;
+}
+
+.card p {
+    /*Ici on met le style des paragraphes dans les cartes, notamment la police, les espacements ainsi que la transition*/
+    margin: 2px 0;
+    font-size: 15px;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}

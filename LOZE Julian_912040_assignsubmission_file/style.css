@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif; /* Police simple et lisible */
+    background: url('fond.jpg') no-repeat center center fixed; /* Image centrée et fixe en fond */
+    background-size: cover; /* L'image couvre toute la zone */
+    display: grid;
+    place-items: center; /* Centre horizontalement et verticalement le contenu */
+    padding: 50px;
+    margin: 0; /* Supprime les marges par défaut */
+    min-height: 100vh; /* S'assure que le fond couvre toute la hauteur de la fenêtre */
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 250px); /* 4 colonnes de 250px */
+    gap: 50px; /* Espacement entre les cartes */
+}
+
+.card {
+    padding: 40px;
+    border-radius: 50px; /* Coins très arrondis pour un look doux */
+    color: rgb(255, 234, 0); /* Texte jaune pâle */
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Image, nom, description */
+    justify-items: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+    background-clip: padding-box;
+    background-image: url('img/stars1.png'); /* Fond étoilé */
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* équivalent à top: 0; right: 0; bottom: 0; left: 0 */
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+  z-index: -1;
+  opacity: 0;
+}
+
+
+.card.gentil:hover::before {
+  border-color: lime;
+  opacity: 1;
+  border-radius: 50px;
+}
+
+.card.mechant:hover::before {
+  border-color: red;
+  opacity: 1;
+  border-radius: 50px;
+}
+
+
+
+.card img {
+    width: 110px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 15px; /* Bords légèrement arrondis */
+}
+
+.cream {
+    background-color: #000000;
+}
+
+.gentil {
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.6); /* Vert lumineux */
+}
+
+.mechant {
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.6); /* Rouge lumineux */
+}
+
+
+.card .description {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.85em;
+    margin-top: 50px;
+    transform: translateY(20px);
+}
+
+
+.card:hover {
+    height: 350px; /* Fait apparaître le texte */
+    transform: scale(1.05) rotateZ(3.5deg); 
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+
+.card:hover .description {
+    opacity: 1;
+    max-height: 135px;
+    transform: translateY(0);
+}
+
+
+@font-face {
+    font-family: 'soloist1';
+    src: url('font/soloist1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.card strong {
+    font-family: 'soloist1';
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+

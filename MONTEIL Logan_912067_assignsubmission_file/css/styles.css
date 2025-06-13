@@ -1,0 +1,181 @@
+/* === reset avec des couleurs des fonts et des couleurs === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: black;
+  overflow-x: hidden;
+  position: relative;
+}
+/* === titre H1 (principale) === */
+h1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffe81f;
+  font-size: 2.8rem;
+  padding: 20px 0;
+  margin: 0 auto;
+  text-shadow: 0 0 10px #ffe81f;
+  z-index: 10;
+}
+
+/* code inspiré d'un tuto ytb pour mettre un en place un css en mouvement dans le body de la page pour essayer de rappeler la galaxie */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 300%;
+  height: 300%;
+  background-image: radial-gradient(white 1.5px, transparent 1.5px);
+  background-size: 6px 6px;
+  opacity: 0.25; /* Plus visible */
+  animation: starsMove 60s linear infinite; /* vitesse de l'animation */
+  z-index: -1;
+}
+/* gestion de l'animation avec le mouvement */
+
+@keyframes starsMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-1000px, 1000px);
+  }
+}
+
+
+/* mise en place des GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* partie flip */
+[class^="carte"] {
+  perspective: 1000px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* animation Flip */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+[class^="carte"]:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Faces des cartes */
+.flip-card-front,
+.flip-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Face avant */
+.flip-card-front {
+  background: #1e1e1e;
+  text-align: center;
+}
+
+.flip-card-front img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid #ffe81f;
+  transition: transform 0.3s ease;
+}
+
+.flip-card-front h2 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+  color: #ffe81f;
+}
+
+.flip-card-front p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* gestion des couleurs de la face arrière   */
+.flip-card {
+  background: #333;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flip-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* === partie survol et changement de couleur === */
+/* côté obscur */
+.carte-boba_fett:hover,
+.carte-vador:hover,
+.carte-palpatine:hover,
+.carte-jabba:hover,
+.carte-stormtrooper:hover,
+.carte-greedo:hover {
+  background: linear-gradient(135deg, #8b0000, #ff0000);
+}
+
+/* gestion de la couleur lors de du flip des résistance */
+.carte:hover,
+.carte-leia:hover,
+.carte-hanSolo:hover,
+.carte-yoda:hover,
+.carte-obiwan:hover,
+.carte-chewbacca:hover,
+.carte-r2d2:hover,
+.carte-c3-po:hover,
+.carte-pilote:hover,
+.carte-ackbar:hover {
+  background: linear-gradient(135deg, #003366, #00bfff);
+}
+
+/* légère mise en avant des cartes */
+[class^="carte"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #ffe81f;
+}
+
+/* partie responsive faites à l'aide de tuto ytb et du TP de Mr.Jaziri */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

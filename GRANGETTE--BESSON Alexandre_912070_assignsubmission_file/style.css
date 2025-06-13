@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box; /* Inclut padding et border dans la taille totale des éléments */
+}
+
+html, body {
+  margin: 0; /* Supprime les marges par défaut dans la zone entre les balises html*/
+  padding: 0; /* Supprime les paddings par défaut dans la zone entre les balises html */
+  max-width: 100%; /* définit la marge max à 100% de la taille de la page*/
+  overflow-x: hidden; /* Cache le débordement horizontal pour éviter que l'on puisse scroll sur le côté*/
+  background-image: url('img/fond.jpg'); /* Image de fond */
+  background-size: cover; /* L'image couvre tout l'écran */
+  background-position: center; /* Centre l'image de fond */
+  background-repeat: no-repeat; /* Ne répète pas l'image */
+}
+
+img {
+  max-width: 100%; /* L'image ne dépasse pas la largeur de son conteneur */
+  height: auto; /* Hauteur automatique pour garder les proportions de l'image */
+  display: block; /* Affiche l'image comme un bloc */
+  width: 50%; /* Largeur de l'image à 50% de son conteneur */
+  object-fit: cover; /* L'image couvre tout l'espace disponible dans le bloc*/
+  border-radius: 50%; /* Rend l'image circulaire pour faire un beau portrait*/
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Police d'écriture */
+  text-align: center; /* Centre le texte */
+  color: azure; /* Couleur du texte */
+  font-size: 500%; /* Taille du texte */
+}
+
+h2 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Police d'écriture */
+  background-color: #f0f8ff; /* Couleur de fond */
+}
+
+.grid {
+  margin-top: 5%; /* Marge en haut */
+  margin-bottom: 5%; /* Marge en bas */
+  display: grid; /* Utilise le modèle de grille CSS */
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de taille égale */
+  gap: 5%; /* Espace entre les éléments de la grille */
+  max-width: 100%; /* Largeur maximale */
+  padding: 0%; /* Pas de padding */
+}
+
+.grid > div {
+  background-color: cadetblue; /* Couleur de fond des cases */
+  height: auto; /* Hauteur automatique */
+  border-radius: 2%; /* Coins arrondis pour y rendre plus joli*/
+  display: grid; /* Utilise la grille pour centrer le contenu */
+  place-items: center; /* Centre horizontalement et verticalement */
+  padding: 10px; /* Espace intérieur entre le bloc image et texte ainsi que le bord des cartes */
+  text-align: center; /* Centre le texte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation lors du survol */
+}
+
+.grid > div p {
+  opacity: 0; /* Par défaut, le texte est invisible*/
+  max-height: 0; /* Hauteur maximale à 0 pour cacher le texte */
+  overflow: hidden; /* Cache le contenu dépassant */
+  transition: opacity 0.4s ease, max-height 0.4s ease; /* Animation lors de l'apparition */
+  text-align: center; /* Centre le texte */
+  background-color: #f0f8ff; /* Couleur de fond du texte */
+}
+
+.grid > div:hover p {
+  opacity: 1; /* Rend le texte visible au survol */
+  max-height: 100%; /* Déploie la hauteur pour afficher le texte */
+}
+
+.grid > div.alliance:hover {
+  box-shadow: 0 0 15px 5px #00ff00; /* Ombre verte au survol car membre de l'alliance */
+  border: 2px solid #00ff00; /* Bordure verte au survol */
+  transform: scale(1.05); /* Zoom/Agrandit légèrement la case */
+  background-color: #f0f8ff; /* Change la couleur de fond */
+}
+
+.grid > div.obscur:hover {
+  box-shadow: 0 0 15px 5px #ff0000; /* Ombre rouge au survol */
+  border: 2px solid #ff0000; /* Bordure rouge au survol */
+  transform: scale(1.05); /* Zoom/Agrandit légèrement la case */
+  background-color: #f0f8ff; /* Change la couleur de fond */
+}
+
+.grid > div.alliance img:hover { /* Effet de l'alliance au survol */
+  filter: drop-shadow(0 0 10px #00ff00); /* Ajoute une ombre verte */
+  transform: scale(1.1); /* Agrandit/zoom l'image */
+  transition: transform 0.3s ease, filter 0.3s ease; /* choisit la vitesse d'animation pour la rendre moins brutale */
+}
+
+.grid > div.obscur img:hover { /* Effet du côté obscur au survol */
+  filter: drop-shadow(0 0 10px #ff0000); /* Ajoute une ombre rouge */
+  transform: scale(1.1); /* Agrandit l'image */
+  transition: transform 0.3s ease, filter 0.3s ease; /* choisit la vitesse d'animation pour la rendre moins brutale  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
