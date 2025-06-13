@@ -1,0 +1,82 @@
+html {
+    background-color: black;
+}
+
+body {
+    background-image: url(img/fond.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: grid;
+    margin: 2%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3%;
+}
+
+h1{
+    color: white;
+}
+.card {
+    display: grid;
+    background-color: transparent;
+    justify-items: center;
+    transform-style: preserve-3d;
+    height: 250px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front-clair,
+.flip-card-front-obscure,
+.flip-card-back {
+    text-align: center;
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front-clair {
+    background-color: #fdf0a6;
+    color: #301500;
+}
+
+.flip-card-front-obscure {
+    background-color: #301500;
+    color: #fffdf3;
+}
+
+.flip-card-back {
+    background-color: rgb(91, 10, 167);
+    color: rgb(255, 255, 255);
+    transform: rotateY(180deg);
+}
+
+.mauvais {
+    background-color: #222222;
+    color: rgb(255, 255, 255);
+}
+
+.card img {
+    margin-top: 10px;
+    width: 30%;
+    overflow: hidden;
+    border-radius: 100%;
+}

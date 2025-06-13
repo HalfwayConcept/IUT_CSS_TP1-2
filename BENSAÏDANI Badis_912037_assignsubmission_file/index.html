@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trombinoscope Star Wars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="img/cosmos.mp4" type="video/mp4">
+</video>
+
+  <h1>Trombinoscope Star Wars</h1>
+
+  <div class="galerie">
+
+    <!-- Carte Luke Skywalker -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <!-- Face avant -->
+        <div class="face face-avant">
+          <img src="img/luke_skywalker.png" alt="Luke Skywalker" />
+          <h2>Luke Skywalker</h2>
+        </div>
+        <!-- Face arrière -->
+        <div class="face face-arriere">
+          <p>
+            Luke Skywalker est un héros de la Rébellion et un Jedi.<br/>
+            Il a détruit l’Étoile de la Mort et aidé à vaincre l’Empire.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Princesse Leia -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/princesse_leia.png" alt="Princesse Leia" />
+          <h2>Princesse Leia</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Princesse Leia est une leader de la Rébellion,<br/>
+            sœur jumelle de Luke Skywalker.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Han Solo -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/han_solo.png" alt="Han Solo" />
+          <h2>Han Solo</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Han Solo est un contrebandier devenu héros<br/>
+            de la Rébellion, capitaine du Faucon Millenium.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yoda -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/yoda.png" alt="Yoda" />
+          <h2>Yoda</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Yoda est un Maître Jedi légendaire,<br/>
+            célèbre pour sa sagesse et sa maîtrise de la Force.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Vador -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/dark_vador.png" alt="Dark Vador" />
+          <h2>Dark Vador</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Dark Vador est un Seigneur Sith de l’Empire,<br/>
+            père de Luke et Leia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empereur Palpatine -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/empereur_palpatine.png" alt="Empereur Palpatine" />
+          <h2>Empereur Palpatine</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Palpatine est le Seigneur Noir des Sith<br/>
+            qui a fondé l’Empire Galactique.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boba Fett -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/boba_fett.png" alt="Boba Fett" />
+          <h2>Boba Fett</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Boba Fett est un redoutable chasseur de primes<br/>
+            qui porte une armure mandalorienne.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- C-3PO -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/c-3po.png" alt="C-3PO" />
+          <h2>C-3PO</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            C-3PO est un droïde de protocole spécialisé<br/>
+            dans la traduction et les bonnes manières.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chewbacca -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/chewbacca.png" alt="Chewbacca" />
+          <h2>Chewbacca</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Chewbacca est un Wookiee loyal et co-pilote<br/>
+            du Faucon Millenium, ami de Han Solo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amiral Ackbar -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/gial_ackbar.png" alt="Amiral Ackbar" />
+          <h2>Amiral Ackbar</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Amiral Ackbar est célèbre pour son cri<br/>
+            “C'est un piège !” lors de la bataille d’Endor.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Greedo -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/greedo.png" alt="Greedo" />
+          <h2>Greedo</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Greedo est un chasseur de primes rodien<br/>
+            qui tente d’arrêter Han Solo à Mos Eisley.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jabba le Hutt -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/jabba_le_hutt.png" alt="Jabba le Hutt" />
+          <h2>Jabba le Hutt</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Jabba le Hutt est un seigneur du crime sur Tatooine,<br/>
+            ennemi de Han Solo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Obi-Wan Kenobi -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/obi-wan_kenobi.png" alt="Obi-Wan Kenobi" />
+          <h2>Obi-Wan Kenobi</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Obi-Wan Kenobi est un Maître Jedi qui forme Anakin puis Luke Skywalker.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pilote X-Wing -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/pilote_xwing.png" alt="Pilote X-Wing" />
+          <h2>Pilote X-Wing</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            Un pilote expérimenté qui combat l’Empire<br/>
+            à bord du chasseur X-Wing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- R2-D2 -->
+    <div class="carte lumineux" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/r2-d2.png" alt="R2-D2" />
+          <h2>R2-D2</h2>
+        </div>
+        <div class="face face-arriere">
+          <p>
+            R2-D2 est un astromech droïde ingénieux<br/>
+            qui accompagne la Rébellion dans leurs missions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stormtrooper -->
+    <div class="carte obscur" onclick="this.classList.toggle('retournee')">
+      <div class="carte-interne">
+        <div class="face face-avant">
+          <img src="img/storm-trooper.png" alt="Stormtrooper" />
+          <h2>Stormtrooper</h2>
+        </div>
+        <div class="face face-arriere">
+          <p><strong>
+            Les Stormtroopers sont les soldats d’élite de l’Empire<br/>
+            Galactique, reconnaissables à leur armure blanche.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

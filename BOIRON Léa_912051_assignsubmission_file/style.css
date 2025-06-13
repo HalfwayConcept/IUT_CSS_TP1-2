@@ -1,0 +1,104 @@
+/* Définition du style général */
+body {
+    background-color: white; /* fond de la page en blanc */
+    margin: 0; /* on enlève les marges par défaut */
+    font-family: sans-serif; /* police plus propre */
+}
+
+/* Style du titre principal */
+h1 {
+    text-align: center; /* centré pour plus de symétrie */
+    margin-top: 20px;
+}
+
+/* Grille principale avec 4 colonnes*/
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes comme demandé */
+  gap: 20px; /* espace entre les cartes */
+  padding: 20px;
+  max-width: 1600px; /* limite la taille max sur grand écran */
+  margin: auto; /* centre le tout */
+}
+
+/* Carte de chaque personnage */
+.card {
+  width: 100%; /* prend toute la colonne */
+  max-width: 100%;
+  height: 400px;
+  perspective: 1000px; /* permet l'effet 3D du flip */
+  margin: auto;
+}
+
+/* Partie intérieure qui se retourne */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s; /* animation smooth */
+  transform-style: preserve-3d; /* garde la profondeur 3D */
+}
+
+/* Quand on survole, on tourne la carte  */
+.card:hover .card-inner {
+  transform: rotateY(180deg); /* effet flip horizontal */
+}
+
+/*  Faces avant et arrière */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* cache la face cachée */
+  border-radius: 10px;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+/* Face avant par défaut (côté héros) */
+.card-front {
+  background-color: lightgreen; /* vert pour les gentils */
+}
+
+/* Face avant des méchants */
+.nul .card-front {
+  background-color: lightcoral; /* rouge pour le côté obscur */
+  color: antiquewhite;
+}
+
+/* Face arrière avec la description */
+.card-back {
+  background-color: blueviolet; /* violet bien flashy */
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Image ronde du personnage */
+.img img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Infos du perso bien centrées */
+.img, .name, .species, .planet {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Responsive : pour les téléphones */
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr; /* une seule colonne */
+    padding: 10px;
+  }
+
+  .card {
+    height: auto; /* on adapte à la taille du contenu */
+  }
+}

@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(../img/ciel.jpg);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    font-style: italic;
+}
+
+.trombi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cartes avec effet flip */
+.card {
+    perspective: 1000px;
+    height: 350px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    justify-items: center;
+    align-content: center;
+    gap: 15px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Styles pour l'Alliance */
+.alliance .card-front {
+    background: linear-gradient(135deg, #fff9c4 0%, #f9e79f 50%, #f4d03f 100%);
+    color: #2c3e50;
+    border: 3px solid #f1c40f;
+}
+
+.alliance .card-back {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #1abc9c 100%);
+    color: white;
+    border: 3px solid #2980b9;
+}
+
+/* Styles pour l'Empire */
+.empire .card-front {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #5d6d7e 100%);
+    color: white;
+    border: 3px solid #e74c3c;
+}
+
+.empire .card-back {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 50%, #922b21 100%);
+    color: white;
+    border: 3px solid #e74c3c;
+}
+
+/* Styles pour les neutres/criminels */
+.neutral .card-front {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 50%, #d35400 100%);
+    color: white;
+    border: 3px solid #e67e22;
+}
+
+.neutral .card-back {
+    background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 50%, #6c3483 100%);
+    color: white;
+    border: 3px solid #8e44ad;
+}
+
+/* Images des personnages */
+.card-front img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-front img {
+    transform: scale(1.1);
+}
+
+/* Typographie des cartes */
+.card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.card-front p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.card-back p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Animation de pulsation pour les cartes */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.card:hover {
+    animation: pulse 2s infinite;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design - Mobile <768px */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Grille mobile - 1 colonne */
+    .trombi-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .card {
+        height: 320px;
+    }
+    
+    .card-front,
+    .card-back {
+        padding: 15px;
+    }
+    
+    .card-front img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 12px;
+    }
+    
+    .card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .card-front p {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+    
+    .card-back p {
+        font-size: 0.9rem;
+        padding: 0 5px;
+    }
+    
+    footer {
+        margin-top: 30px;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:nth-child(9) { animation-delay: 0.9s; }
+.card:nth-child(10) { animation-delay: 1.0s; }
+.card:nth-child(11) { animation-delay: 1.1s; }
+.card:nth-child(12) { animation-delay: 1.2s; }
+.card:nth-child(13) { animation-delay: 1.3s; }
+.card:nth-child(14) { animation-delay: 1.4s; }
+.card:nth-child(15) { animation-delay: 1.5s; }
+.card:nth-child(16) { animation-delay: 1.6s; }

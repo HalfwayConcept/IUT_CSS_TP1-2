@@ -1,0 +1,140 @@
+@font-face {
+  font-family: "StarJedi";
+  src: url("../fonts/Starjedi.ttf");
+}
+
+@media (max-width: 768px) { /* media query permettant une version responsive */
+    #cartes {
+        grid-template-columns: repeat(1, 1fr) !important;
+        
+    }
+}
+
+body {
+  background-image: url(../images/fond.jpg);
+}
+
+b {
+  font-size: x-large;
+}
+
+#titre {
+  color: white;
+  font-family: "StarJedi";
+  padding-left: 2%;
+}
+
+#cartes {
+    display : grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1%;
+}
+
+.description{
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 5px;
+}
+
+#cartes div {
+    margin: 3%;
+    padding : 3%;
+    border-radius: 8%;
+    display:grid;
+    place-items: center;
+}
+
+img {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+}
+
+/* Style des flip card */
+/* aidée par le site https://www.w3schools.com/howto/howto_css_flip_card.asp */
+
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  min-height: 250px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  text-align: center;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-recto-clair, .flip-card-recto-obscur, .flip-card-verso-clair, .flip-card-verso-obscur{
+  position: absolute;
+  width: 100%;
+  min-height: 250px;
+  height: auto;
+  backface-visibility: hidden;
+}
+
+.flip-card-recto-clair {
+  color: black;
+  background-color: transparent;
+  color: #f3f0cf;
+  border: 2px solid #f3f0cf;
+  box-shadow: 0 0 10px #ffef3b;
+  transition: all 0.9s;
+}
+
+.flip-card-recto-obscur {
+  color: white;
+  background-color: transparent;
+  color: #631324;
+  border: 2px solid #631324;
+  box-shadow: 0 0 15px #631324;
+  transition: all 0.9s;
+}
+
+
+.flip-card-recto-clair:hover {
+  color: #111;
+  background-color: #ffef3b;
+  }
+
+  .flip-card-recto-obscur:hover {
+  color: #111;
+  background-color: #631324;
+  }
+
+.flip-card-verso-clair {
+  background-color: #ffef3b;
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  transition-delay: 0.1s;
+   padding-bottom: 10px;
+}
+
+.flip-card-verso-obscur {
+  background-color: #631324;
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  transition-delay: 0.1s;
+}
+
+.accordeon { /* permet de déplier le verso de la carte */
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 1s ease 1.2s;
+}
+
+.flip-card:hover .accordeon {
+  max-height: 300px;
+  opacity: 1;
+}

@@ -1,0 +1,120 @@
+body {  /* Modification de la taille de la page ainsi que son arrière plan fixé */
+    margin: 0px;
+    background-image: url(img/star.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center; 
+    background-attachment: fixed; 
+}
+
+h1{
+    color: #ffd500; /* Couleur du titre*/
+}
+
+
+h2{
+  font-size: 12px;  /* Taille des descriptions des cartes */
+}
+
+main {     /* Centrer les éléments */
+    max-width: 940px;
+    margin: auto;
+}
+
+#conteneur1 { /* Les grilles disposé en quatre colonnes avec un différence */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 20px;
+    justify-items: center;
+    max-width: 1200px;
+}
+
+
+.box {  /* Modification des cartes, arrière plan, effet néon, bords arrondi */
+    background-color: bisque;
+    border-radius: 20px;
+    box-shadow: 0 20px 100px brown, 0 0 20px #cdf102, 0 0 30px #ffd500;
+    padding: 30px 40px;
+    text-align: center;
+       transition: background-color 0.3s ease;
+       width:70;
+}
+
+.box img {  /* Modification des images dans les grilles */
+    border-radius: 60px;
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.box:hover img {  /* Survolle des box les images obtiennent une shadow box */
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px #060694, 0 0 20px #09d03e, 0 0 30px #ffd500;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+
+
+p{ /* Taille des description à l'effet accordéon */
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+#quatre, #dix, #onze, #douze, #treize, #quinze {  /* couleur des méchants */
+    background-color: grey;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-content { /* effet accordéon */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 50px;
+    opacity: 0;
+}
+
+.box:hover .accordion-content {
+    max-height: 100px; 
+    padding: 10px;
+    opacity: 1;
+}
+
+.box:hover{ /* Survolle des box avec changement de couleur */
+    background-color: blueviolet;
+
+}
+
+p{  /* couleur des descriptions */
+    color: bisque;
+}
+
+#quatre:hover, #dix:hover, #onze:hover, #douze:hover, #treize:hover, #quinze:hover{
+    background-color: red;
+}
+
+@media (max-width: 768px) {  /* Responsive pour mobile */
+    #conteneur1 {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .accordion-content {
+        padding: 0 20px;
+    }
+}

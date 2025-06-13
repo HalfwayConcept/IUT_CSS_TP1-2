@@ -1,0 +1,133 @@
+body {
+  font-family: sans-serif;
+  background: #eee url('../img/background.jpg') no-repeat center center;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.boite-trombino {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.fiche {
+  perspective: 1000px;
+}
+
+.carte {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.fiche:hover .carte {
+  transform: rotateY(180deg);
+}
+
+.face-devant, .face-derriere {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.637);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.face-derriere {
+  background-color: #00000091;
+  color: rgb(255, 255, 255);
+  transform: rotateY(180deg);
+}
+
+
+.face-devant img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.perso-bon .face-devant {
+  background-color: #90da987e; 
+}
+
+.perso-mechant .face-devant {
+  background-color: #ff000052; 
+  color: white;
+}
+
+.face-devant img {
+  width: 80px;
+  margin-bottom: 10px;
+  border-radius: 50%; 
+}
+
+.face-devant img {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+.fiche:hover .carte {
+  transform: rotateY(180deg) scale(1.07) translateY(-10px);
+  box-shadow: 0 12px 32px rgb(255, 255, 255);
+}
+
+/*responsive*/
+
+@media (max-width: 1200px) {
+  .boite-trombino {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .boite-trombino {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .carte {
+    width: 170px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+  h1 {
+    font-size: 1.3em;
+    text-align: center;
+  }
+  .boite-trombino {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0;
+  }
+  .carte {
+    width: 95vw;
+    max-width: 320px;
+    height: 210px;
+  }
+  .face-devant, .face-derriere {
+    padding: 8px;
+    font-size: 0.97em;
+  }
+}
+
+.carte, .face-devant, .face-derriere {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

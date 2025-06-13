@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Star Jedi";
+  src: url(../fonts/Starjedi.ttf) format("truetype");
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+  padding: 20px;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+h1 {
+  letter-spacing: 0.1em;
+  font-family: "Star Jedi", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+p{
+  font-weight: bold
+}
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+.carte {
+  perspective: 1000px; 
+  cursor: pointer;
+}
+
+.carte-interne {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+
+.carte.retournee .carte-interne {
+  transform: rotateY(180deg);
+}
+
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.face-avant img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.face-avant h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.face-arriere {
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.face-arriere p {
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.carte.lumineux .face-avant {
+  background: rgba(255, 252, 240, 0.85);
+  color: #1A2035;
+  border: 1px solid #FFD66B;
+}
+.carte.lumineux .face-arriere {
+  background: rgba(250, 248, 235, 0.85);
+  color: #1A2035;
+  border: 1px solid #FFD66B;
+}
+.carte.lumineux .face-avant img {
+  box-shadow: 0 4px 12px rgba(255, 214, 107, 0.4);
+}
+.carte.lumineux:hover .face-avant,
+.carte.lumineux:hover .face-arriere {
+  background: rgba(255, 254, 240, 1.0);
+  box-shadow: 0 6px 16px rgba(255, 214, 107, 0.6);
+}
+
+
+/*Carte côté obscur (violet-bleu)*/
+.carte.obscur .face-avant {
+  background: rgba(58, 12, 163, 0.85);
+  color: #E0E0FF;
+  border: 1px solid #3A0CA3;
+}
+
+.carte.obscur .face-arriere {
+  background: rgba(38, 8, 113, 0.85);
+  color: #E0E0FF;
+  border: 1px solid #3A0CA3;
+}
+
+.carte.obscur .face-avant img {
+  box-shadow: 0 4px 12px rgba(58, 12, 163, 0.6); 
+}
+
+.carte.obscur:hover .face-avant,
+.carte.obscur:hover .face-arriere {
+  background: rgba(58, 12, 163, 1.0);  
+  box-shadow: 0 6px 16px rgba(58, 12, 163, 0.8);
+}
+
+.carte:hover {
+  transform: scale(1.07);
+  transition: transform 0.3s;
+}
+
