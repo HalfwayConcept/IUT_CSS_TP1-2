@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #ffe81f;
+  text-shadow: 2px 2px #000;
+}
+
+/* Grille  */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 250px;
+  padding: 80px 0px;
+  max-width: 4200px;
+  margin: 70px;
+}
+
+
+/* Carte :  pour l'espace entre elles */
+.card-alliance,
+.card-obscur {
+  perspective: 1000px;
+  margin-bottom: 100px;
+}
+
+.card-flip {
+  width: 100%;
+  height: 320%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+/* rotations des cartes*/
+.card-alliance:hover .card-flip,
+.card-obscur:hover .card-flip {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-front img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.card-front h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ffe81f;
+}
+/* l'ecriture des textes */
+.card-front p,
+.card-back p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* coulerus avant de la carte  */
+.card-front {
+  background: #335e9e;
+  z-index: 2;
+}
+
+
+.card-back {
+  background: #cd9c9c;
+  transform: rotateY(180deg);
+}
+
+/*les bordures des cartes */
+.card-alliance .card-front {
+  border: 3px solid #1e90ff;
+}
+
+.card-obscur .card-front {
+  border: 3px solid #ff4d4d;
+}
+

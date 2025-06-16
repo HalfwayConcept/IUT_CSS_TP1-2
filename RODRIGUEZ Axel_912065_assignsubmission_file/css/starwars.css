@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../Font/montserrat.ttf);
+}
+
+@font-face {
+    font-family: starjedi;
+    src: url(../Font/Starjedi.ttf);
+}
+
+body {
+    background-image: url(../img/background.jpeg);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+h1 {
+    font-family: starjedi;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+article {
+    font-family: Montserrat;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 19px;
+}
+
+h3 {
+    font-family: starjedi;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 22px;
+}
+
+header {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.trombi {
+    height: 100%;
+    margin: 20px;
+    margin-left: 40px;
+    gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.description {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.9s ease; 
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: starjedi;
+  text-align: center;
+}
+
+.perso:hover .description {
+  opacity: 1;
+  max-height: 300px; 
+  padding: 15px;
+}
+
+.perso {
+    position: relative;
+    overflow: hidden;
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.perso:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+.IP {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border-radius: 80px; 
+    transition: transform 0.4s ease;
+    box-shadow: 5px 5px 30px red;
+}
+
+.persogood > .IP {
+    box-shadow: 5px 5px 30px green;
+}
